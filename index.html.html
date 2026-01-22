@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algarve Clean Pro | Faro Ultra-Futurista 2026</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --deep-purple: #0a0514;
+            --accent-purple: #1a0b2e;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--deep-purple);
+            /* Efeito de Gradiente em Movimento */
+            background: radial-gradient(circle at 50% 50%, var(--accent-purple) 0%, var(--deep-purple) 100%);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Efeito de Fundo: Partículas Estáticas (Simuladas com CSS) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com');
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        /* HEADER */
+        header {
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(10, 5, 20, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+        }
+
+        .logo { 
+            color: var(--neon-blue); 
+            font-family: 'Orbitron'; 
+            font-size: 1.8rem;
+            font-weight: 900; 
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 0 0 15px rgba(0, 242, 255, 0.8);
+            animation: glitch 5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: skew(0deg); }
+            2% { transform: skew(3deg); text-shadow: 2px 0 var(--neon-blue), -2px 0 #ff00ff; }
+            4% { transform: skew(0deg); }
+        }
+
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            font-family: 'Orbitron';
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
+
+        /* HERO - INTERFACE HOLOGRÁFICA */
+        .hero {
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(rgba(10, 5, 20, 0.7), rgba(10, 5, 20, 0.9)), 
+                        url('https://images.pexels.com') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+        }
+
+        .hero h1 { 
+            font-family: 'Orbitron'; 
+            font-size: clamp(2rem, 8vw, 4rem); 
+            margin-bottom: 20px; 
+            background: linear-gradient(to right, #fff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.5));
+        }
+
+        .hero p { max-width: 800px; font-size: 1.3rem; color: #b0a0cc; line-height: 1.8; font-style: italic; }
+
+        /* VISÃO */
+        .vision-section { padding: 100px 10%; text-align: center; max-width: 1000px; }
+        .vision-section h2 { font-family: 'Orbitron'; color: var(--neon-blue); margin-bottom: 30px; letter-spacing: 5px; }
+        .vision-section p { font-size: 1.1rem; line-height: 2; color: #d1c4e9; }
+
+        /* SERVIÇOS - CARDS FLUTUANTES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            width: 90%;
+            max-width: 1200px;
+            padding-bottom: 100px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,242,255,0.02));
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--neon-blue);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            filter: saturate(1.5) brightness(0.7) hue-rotate(280deg); /* Efeito Roxo Tecnológico */
+        }
+
+        .service-content { padding: 30px; text-align: center; }
+        .service-card h3 { font-family: 'Orbitron'; color: var(--neon-blue); font-size: 1rem; margin-bottom: 15px; }
+
+        /* CONTACTOS & ORÇAMENTO */
+        #contactos {
+            width: 100%;
+            padding: 120px 10%;
+            background: linear-gradient(to bottom, var(--deep-purple), #1a0b2e);
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; width: 100%; align-items: center; }
+        
+        .contact-info h2 { font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 40px; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+        .detail-item { margin-bottom: 30px; border-left: 3px solid var(--neon-blue); padding-left: 20px; }
+        .detail-item span { display: block; font-family: 'Orbitron'; font-size: 0.7rem; color: var(--neon-blue); letter-spacing: 2px; }
+        .detail-item p, .detail-item a { font-size: 1.4rem; color: #fff; text-decoration: none; margin: 5px 0; }
+
+        /* PORTAL DE ORÇAMENTO */
+        .budget-portal {
+            background: rgba(26, 11, 46, 0.6);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            backdrop-filter: blur(30px);
+            box-shadow: 0 0 50px rgba(0, 242, 255, 0.1);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 18px;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            border-radius: 12px;
+            font-family: 'Inter';
+            transition: 0.3s;
+        }
+
+        input:focus { border-color: var(--neon-blue); background: rgba(0,242,255,0.05); }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(90deg, transparent, rgba(0, 242, 255, 0.1), transparent);
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            font-family: 'Orbitron';
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: 0.4s;
+        }
+
+        .submit-btn:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 30px var(--neon-blue); }
+
+        footer { padding: 80px; color: #4a3b61; font-size: 0.7rem; text-align: center; letter-spacing: 3px; font-family: 'Orbitron'; }
+
+        @media (max-width: 900px) {
+            .contact-wrapper { grid-template-columns: 1fr; }
+            header { flex-direction: column; padding: 15px; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ALGARVE CLEAN PRO</div>
+        <nav>
+            <a href="#visao">Visão</a>
+            <a href="#servicos">Especialidades</a>
+            <a href="#contactos">Portal Orçamento</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>A ARTE DA PRIMEIRA IMPRESSÃO</h1>
+        <p>"A limpeza não é apenas uma tarefa, é a moldura tecnológica que envolve a experiência dos seus hóspedes. Em 2026, redefinimos o padrão de Faro."</p>
+    </section>
+
+    <section id="visao" class="vision-section">
+        <h2>SISTEMAS DE ELITE</h2>
+        <p>
+            Na <strong>Algarve Clean Pro</strong>, acreditamos que cada Check-in em Faro é um evento de precisão. 
+            Fusão entre inteligência operacional e rigor estético, garantimos que o seu Alojamento Local ou Hostel brilhe na vanguarda do setor.
+            <br><br>
+            <span style="color: var(--neon-blue); font-weight: bold; font-family: 'Orbitron';">FOCO EXCLUSIVO: ZONA DE FARO</span>
+        </p>
+    </section>
+
+    <section id="servicos" class="services-grid">
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('https://images.pexels.com');"></div>
+            <div class="service-content">
+                <h3>ROTAÇÃO EXPRESS AL</h3>
+                <p>Protocolos otimizados para janelas críticas entre hóspedes. Eficiência máxima em Faro.</p>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('https://images.pexels.com');"></div>
+            <div class="service-content">
+                <h3>EXCELÊNCIA EM HOSTELS</h3>
+                <p>Higiene profunda em dormitórios e zonas sociais com biossegurança avançada.</p>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('https://images.pexels.com');"></div>
+            <div class="service-content">
+                <h3>AUDITORIA DIGITAL</h3>
+                <p>Relatórios detalhados com confirmação visual enviados após cada ciclo técnico.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactos">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>CENTRO DE <br><span style="color: var(--neon-blue);">COMANDO</span></h2>
+                <div class="detail-item">
+                    <span>LINHA OPERACIONAL</span>
+                    <a href="tel:935001571">935 001 571</a>
+                </div>
+                <div class="detail-item">
+                    <span>ENCRIPTADO (EMAIL)</span>
+                    <a href="mailto:geral.algarvecleanpro@gmail.com" style="font-size: 1.1rem;">geral.algarvecleanpro@gmail.com</a>
+                </div>
+                <div class="detail-item">
+                    <span>ZONA ATIVA</span>
+                    <p>Faro, Portugal</p>
+                </div>
+            </div>
+
+            <div class="budget-portal">
+                <h3>REQUISITAR ORÇAMENTO SMART</h3>
+                <form>
+                    <input type="text" placeholder="Nome do Gestor / Entidade" required>
+                    <select required>
+                        <option value="" disabled selected>Natureza do Imóvel</option>
+                        <option>Alojamento Local (Faro)</option>
+                        <option>Hostel / Guesthouse</option>
+                        <option>Outros Espaços</option>
+                    </select>
+                    <textarea placeholder="Especificações das unidades e frequência pretendida..." rows="4" required></textarea>
+                    <button type="submit" class="submit-btn">ATIVAR PROPOSTA</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 ALGARVE CLEAN PRO | SISTEMAS DE HIGIENE ULTRA-FUTURISTA
+    </footer>
+
+</body>
+</html>
